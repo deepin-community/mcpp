@@ -1,5 +1,188 @@
-template-repository (1.0-1) unstable; urgency=medium
+mcpp (2.7.2-5.2) unstable; urgency=medium
 
-  * Initial release
+  * Non-maintainer upload.
+  * Apply multi-arch hints. + mcpp-doc: Add Multi-Arch: foreign.
+  * Fix build with GCC 14.x (Closes: #1075263).
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+  [ NIIBE Yutaka ]
+  * Add debian/gbp.conf.
+
+ -- Bastian Germann <bage@debian.org>  Wed, 13 Nov 2024 21:39:04 +0000
+
+mcpp (2.7.2-5.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix FTBFS with -Werror=implicit-function-declaration (Closes: #1066506).
+
+ -- Andrey Rakhmatullin <wrar@debian.org>  Sat, 16 Mar 2024 18:23:16 +0500
+
+mcpp (2.7.2-5) unstable; urgency=medium
+
+  * debian/compat: Require 10.
+  * debian/control (Build-Depends): Remove dh-autoreconf.
+    (Standards-Version): Conforms to 4.4.0.
+    (Multi-Arch): Add with same for libmcpp-dev (Closes: #818402).
+  * debian/rules: Remove --with autoreconf.
+  * debian/patches/03-gniibe-fix-11.patch: New.
+  * debian/patches/04-gniibe-fix-12.patch: New.
+  * debian/patches/05-gniibe-fix-13.patch: New (Closes: #933497),
+    fixing vulnerability of CVE-2019-14274.
+  * debian/patches/06-gniibe-fix-autotools.patch: New.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Thu, 15 Aug 2019 15:50:38 +0900
+
+mcpp (2.7.2-4) unstable; urgency=medium
+
+  * Fix for ppc64el.  Thanks to Fernando Seiti Furusato (Closes: #752826).
+  * debian/control (Build-Depends): Require dh-autoreconf.
+    (Standards-Version): Conforms to 3.9.5.
+  * debian/rules: Add --with autoreconf.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Fri, 27 Jun 2014 13:38:05 +0000
+
+mcpp (2.7.2-3) unstable; urgency=low
+
+  * debian/control (Build-Depends): Require autotools-dev.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Tue, 09 Jul 2013 04:16:01 +0000
+
+mcpp (2.7.2-2) unstable; urgency=low
+
+  * debian/control (DM-Upload-Allowed): Remove.
+    (Build-Depends): Require debhelper >= 9.
+    (Standards-Version): Conforms to 3.9.4.
+    [libmcpp0] (Multi-Arch, Pre-Depends): Add.
+    (Homepage): New.
+    (Description): Fix  (Closes: #703462).  Thanks to Erik Esterer.
+  * debian/compat: Require 9.
+  * debian/source/format: New.
+  * Incorporate NMU (Closes: #611749).  Thanks to Cleto Martin Angelina.
+  * debian/patches/01-zeroc-fixes.patch: New.
+  * debian/mcpp-doc.install: New.
+  * debian/{libmcpp0.install,libmcpp-dev.install}: Update for Multi-arch
+    support.  Remove *.la.
+  * debian/patches/02-gniibe-fixes.patch: New.  Thanks to Alexandre Rebert
+    for finding this bug.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Tue, 09 Jul 2013 01:06:21 +0000
+
+mcpp (2.7.2-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+
+ -- Cleto Martin Angelina <cleto.martin@gmail.com>  Tue, 01 Feb 2011 12:38:46 +0100
+
+mcpp (2.7.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Kiyoshi Matsui <kmatsui@t3.rim.or.jp>  Wed, 10 Feb 2010 10:15:10 +0900
+
+mcpp (2.7.1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Kiyoshi Matsui <kmatsui@t3.rim.or.jp>  Sat, 24 May 2008 18:40:22 +0900
+
+mcpp (2.7-3) unstable; urgency=low
+
+  * Provide mcpp-doc package as well.  Thanks to 2.6.4-2ubuntu1 package.
+
+ -- Kiyoshi Matsui <kmatsui@t3.rim.or.jp>  Mon, 07 Apr 2008 18:08:47 +0900
+
+mcpp (2.7-2) unstable; urgency=low
+
+  * debian/control, debian/rules: Provide packages libmcpp0 and
+    libmcpp0-dev as well as mcpp (Closes: #474169).
+    Thanks to Francisco Moya.
+  * debian/copyright: Updated.
+
+  NIIBE Yutaka:
+  * src/Makefile.am: Build mcpp with libmcpp.
+  * src/main_libmcpp.c: New file.
+  * Makefile.am: Install mcpp.1 even if MCPP_LIB is defined.
+  * debian/libmcpp-dev.{dirs,install}, debian/libmcpp0.{dirs,install},
+    debian/mcpp.install: New files.
+  * debian/rules: Enable dh_install and dh_makeshlibs.
+    Supply ac_cv_func_stpcpy=no to configure option to avoid GCC bug.
+
+ -- Kiyoshi Matsui <kmatsui@t3.rim.or.jp>  Sat, 05 Apr 2008 23:21:59 +0900
+
+mcpp (2.7-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Fri, 28 Mar 2008 11:07:36 +0900
+
+mcpp (2.6.4-2) unstable; urgency=low
+
+  * Applied a patch of 1796222 at sf.net.
+  * debian/control (Standards-Version): It now follows 3.7.3.
+  * debian/rules (clean): Fix distclean.
+  (install): Remove empty /usr/lib.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Fri, 25 Jan 2008 09:35:00 +0900
+
+mcpp (2.6.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Kiyoshi Matsui <kmatsui@t3.rim.or.jp>  Sun, 20 May 2007 22:55:19 +0900
+
+mcpp (2.6.3-1) unstable; urgency=low
+
+  * Initial Release by the author of mcpp.
+
+ -- Kiyoshi Matsui <kmatsui@t3.rim.or.jp>  Sat, 07 Apr 2007 14:27:29 +0900
+
+mcpp (2.6.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Mon, 13 Nov 2006 16:31:58 +0900
+
+mcpp (2.6.1-2) unstable; urgency=low
+
+  * configure.ac: Revert the change for automake 1.9 to minimize diff.
+  (The fix has been reported to upstream and it will be included in
+  forthcoming next release.)
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Sat, 21 Oct 2006 14:38:24 +0900
+
+mcpp (2.6.1-1) unstable; urgency=low
+
+  * configure.ac: Fix for automake 1.9.
+  * debian/rules: Install the manual.
+  * debian/control (Standards-Version): Follows new standard 3.7.2.2.
+  * debian/watch: The upstram has been moved.
+  * New upstream release
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Sat, 14 Oct 2006 15:25:32 +0900
+
+mcpp (2.5-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Sat, 16 Apr 2005 15:58:16 +0900
+
+mcpp (2.4.1-3) unstable; urgency=low
+
+  * debian/control: Improve Description.
+  * debian/watch: Prepend opts=pasv before URL.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Sat, 23 Oct 2004 23:18:57 +0900
+
+mcpp (2.4.1-2) unstable; urgency=low
+
+  * src/mcpp.1: Fix formatting.
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Mon,  9 Aug 2004 17:21:10 +0900
+
+mcpp (2.4.1-1) unstable; urgency=low
+
+  * Initial Release.
+    config/config.guess, config/config.sub: Import up-to-date version.
+    src/mcpp.1: Added.
+    closes: Bug#239704
+
+ -- NIIBE Yutaka <gniibe@fsij.org>  Mon,  2 Aug 2004 22:04:32 +0900
