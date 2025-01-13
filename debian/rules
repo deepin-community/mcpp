@@ -1,4 +1,18 @@
 #!/usr/bin/make -f
+# -*- makefile-gmake -*-
 
 %:
 	dh $@
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -f config/config.sub config/config.guess
+
+override_dh_auto_configure:
+	ln -sf /usr/share/misc/config.sub config/
+	ln -sf /usr/share/misc/config.guess config/
+	dh_auto_configure -- --enable-mcpplib
+
+override_dh_auto_build:
+	dh_auto_build
+	rm -f $(CURDIR)/debian/tmp/usr/share/doc/mcpp/LICENSE
